@@ -13,6 +13,7 @@ namespace BurgerApp.Domain.Models
         public User User { get; set; }
         public int UserId { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
+        public OrderStatus OrderStatus { get; set; }
         public bool IsDelivered { get; set; }
         public List<OrderBurger> OrderBurgers { get; set; } = new();
     }
