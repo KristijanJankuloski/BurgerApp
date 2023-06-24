@@ -1,4 +1,6 @@
 ﻿using BurgerApp.DataAccess.DataContext;
+using BurgerApp.DataAccess.Repositories.Implementations;
+using BurgerApp.DataAccess.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,10 +8,15 @@ namespace BurgerApp.Helpers
 {
     public static class DependencyInjectionHelper
     {
-        public static void InjectDbContext(this IServiceCollection services)
+        public static void InjectDbContext(this IServiceCollection services, string connectionString)
         {
             services.AddDbContext<BurgerAppDbContext>(options =>
-                options.UseSqlServer("Data Source=KIKO-LAPTOP\\SQLEXPRESS;Database=BurgerAppDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+                options.UseSqlServer(connectionString));
+        }
+
+        public static void InjectRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IBurgerRepository, BurgerRepository>();
         }
     }
 }

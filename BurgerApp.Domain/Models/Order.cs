@@ -12,6 +12,8 @@ namespace BurgerApp.Domain.Models
         public DateTime OrderDate { get; set; }
         public User User { get; set; }
         public int UserId { get; set; }
+        public Location Location { get; set; }
+        public int LocationId { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public OrderStatus OrderStatus { get; set; }
         public bool IsDelivered { get; set; }

@@ -4,7 +4,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.InjectDbContext();
+builder.Services.InjectDbContext(builder.Configuration.GetConnectionString("BurgerDbConnectionString"));
+builder.Services.InjectRepositories();
 
 var app = builder.Build();
 

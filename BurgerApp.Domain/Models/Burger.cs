@@ -9,9 +9,11 @@ namespace BurgerApp.Domain.Models
         public string Name { get; set; } = string.Empty;
         [Range(0, 999)]
         public double Price { get; set; }
-        public Category Category { get; set; }
         [MaxLength(200)]
         public string Description { get; set; } = string.Empty;
+        public bool IsVegeterian { get; set; }
+        public bool IsVegan { get; set; }
+        public bool HasFries { get; set; }
         public List<OrderBurger> OrderBurgers { get; set; } = new();
     }
 }

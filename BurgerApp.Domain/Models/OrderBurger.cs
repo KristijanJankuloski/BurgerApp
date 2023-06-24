@@ -12,6 +12,5 @@ namespace BurgerApp.Domain.Models
         public int BurgerId { get; set; }
         public Order Order { get; set; }
         public int OrderId { get; set; }
-        public bool IncludeFries { get; set; }
     }
 }

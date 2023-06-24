@@ -40,7 +40,9 @@ namespace BurgerApp.DataAccess.DataContext
                     Name = "Hamburger",
                     Description = "Beef patty, Buns, Ketchup, Mayo, Lettuce",
                     Price = 180,
-                    Category = Category.Hamburger,
+                    IsVegan = false,
+                    IsVegeterian = false,
+                    HasFries = true,
                 },
                 new Burger
                 {
@@ -48,7 +50,9 @@ namespace BurgerApp.DataAccess.DataContext
                     Name = "Cheeseburger",
                     Description = "Beef patty, Cheddar, Buns, Ketchup, Mayo, Lettuce",
                     Price = 200,
-                    Category = Category.Hamburger,
+                    IsVegan = false,
+                    IsVegeterian = false,
+                    HasFries = true,
                 },
                 new Burger
                 {
@@ -56,7 +60,9 @@ namespace BurgerApp.DataAccess.DataContext
                     Name = "Chikenburger",
                     Description = "Chiken steak, Buns, Ketchup, Mayo, Lettuce",
                     Price = 200,
-                    Category = Category.Chickenburger,
+                    IsVegan = false,
+                    IsVegeterian = false,
+                    HasFries = true,
                 },
                 new Burger
                 {
@@ -64,7 +70,9 @@ namespace BurgerApp.DataAccess.DataContext
                     Name = "Chiken Cheese",
                     Description = "Chiken steak, Cheddar, Buns, Ketchup, Mayo, Lettuce",
                     Price = 220,
-                    Category = Category.Chickenburger,
+                    IsVegan = false,
+                    IsVegeterian = false,
+                    HasFries = true,
                 }
             );
         }
