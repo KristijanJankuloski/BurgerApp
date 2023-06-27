@@ -10,5 +10,6 @@ namespace BurgerApp.Services.Interfaces
     public interface IBurgerService
     {
         Task<List<BurgerListViewModel>> GetBurgersForCards();
+        Task<BurgerDetailsViewModel> GetBurgerDetails(int id);
     }
 }

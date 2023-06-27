@@ -19,5 +19,19 @@ namespace BurgerApp.Mappers
                 Price = burger.Price,
             };
         }
+
+        public static BurgerDetailsViewModel ToBurgerDetailsViewModel(this Burger burger)
+        {
+            return new BurgerDetailsViewModel
+            {
+                Id = burger.Id,
+                Name = burger.Name,
+                Price = burger.Price,
+                Description = burger.Description,
+                IsVegan = burger.IsVegan,
+                IsVegeterian = burger.IsVegeterian,
+                HasFries = burger.HasFries,
+            };
+        }
     }
 }

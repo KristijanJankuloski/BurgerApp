@@ -14,6 +14,12 @@ namespace BurgerApp.Services.Implementations
             _burgerRepository = burgerRepository;
         }
 
+        public async Task<BurgerDetailsViewModel> GetBurgerDetails(int id)
+        {
+            Burger burger = await _burgerRepository.GetByIdAsync(id);
+            return burger.ToBurgerDetailsViewModel();
+        }
+
         public async Task<List<BurgerListViewModel>> GetBurgersForCards()
         {
             List<Burger> burgers = await _burgerRepository.GetAllAsync();

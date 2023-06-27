@@ -15,5 +15,15 @@ namespace BurgerApp.App.Controllers
         {
             return View(await _burgerService.GetBurgersForCards());
         }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if(id == null)
+            {
+                TempData["Error"] = "Cannot find id";
+                return RedirectToAction("Index");
+            }
+            return View(await _burgerService.GetBurgerDetails((int)id));
+        }
     }
 }
