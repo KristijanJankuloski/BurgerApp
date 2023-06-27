@@ -1,0 +1,10 @@
+﻿@model BurgerListViewModel
+
+<div class="card">
+        <img class="card-img-top" src="/img/standin-burger.jpg" alt="Image for @Model.Name" />
+    <div class="card-body">
+        <h3 class="card-title">@Model.Name</h3>
+        <p class="card-text">@Model.Price</p>
+        <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-primary">View more</a>
+    </div>
+</div>

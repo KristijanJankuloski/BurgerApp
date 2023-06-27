@@ -1,6 +1,8 @@
 ﻿using BurgerApp.DataAccess.DataContext;
 using BurgerApp.DataAccess.Repositories.Implementations;
 using BurgerApp.DataAccess.Repositories.Interfaces;
+using BurgerApp.Services.Implementations;
+using BurgerApp.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,7 +18,12 @@ namespace BurgerApp.Helpers
 
         public static void InjectRepositories(this IServiceCollection services)
         {
-            services.AddScoped<IBurgerRepository, BurgerRepository>();
+            services.AddTransient<IBurgerRepository, BurgerRepository>();
+        }
+
+        public static void InjectServices(this IServiceCollection services)
+        {
+            services.AddTransient<IBurgerService, BurgerService>();
         }
     }
 }

@@ -13,7 +13,8 @@ namespace BurgerApp.Domain.Models
         public string Name { get; set; } = string.Empty;
         [MaxLength(50)]
         public string Address { get; set; } = string.Empty;
-        public TimeOnly OpensAt { get; set; }
-        public TimeOnly ClosesAt { get; set; }
+        public List<Order> Orders { get; set; } = new();
+        public TimeSpan OpensAt { get; set; }
+        public TimeSpan ClosesAt { get; set; }
     }
 }

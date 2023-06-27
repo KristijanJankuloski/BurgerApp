@@ -13,42 +13,36 @@ namespace BurgerApp.DataAccess.Repositories.Implementations
             _context = context;
         }
 
-        public async Task AddAsync(Burger entity)
+        public async Task InsertAsync(Burger entity)
         {
-            await _context.Burgers.AddAsync(entity);
-            _context.SaveChanges();
+            await _context.AddAsync(entity);
+            await _context.SaveChangesAsync();
         }
 
         public async Task DeleteByIdAsync(int id)
         {
+            Burger burger = await _context.Burgers.FirstOrDefaultAsync(b => b.Id == id);
+            if (burger == null) {
+                throw new Exception("Burger not found");
+            }
+            await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<Burger>> GetAllAsync()
+        public async Task<List<Burger>> GetAllAsync()
         {
-            List<Burger> burgers = null;
-            await Task.Run(() =>
-            {
-                burgers = _context.Burgers.ToList();
-            });
-            if (burgers == null)
-                throw new Exception("DB not found");
-            return burgers;
+            return await _context.Burgers.ToListAsync();
         }
 
         public async Task<Burger> GetByIdAsync(int id)
         {
-            Burger burger = null;
-            await Task.Run(() =>
-            {
-                burger = _context.Burgers.FirstOrDefault(x => x.Id == id);
-            });
-            if (burger == null)
-                throw new Exception("No burger found");
+            Burger burger = await _context.Burgers.FirstOrDefaultAsync(b => b.Id == id);
             return burger;
         }
 
         public async Task UpdateAsync(Burger entity)
         {
+            _context.Update(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

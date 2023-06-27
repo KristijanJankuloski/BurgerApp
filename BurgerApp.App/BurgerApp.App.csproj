@@ -15,6 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BurgerApp.Helpers\BurgerApp.Helpers.csproj" />
+    <ProjectReference Include="..\BurgerApp.Services\BurgerApp.Services.csproj" />
+    <ProjectReference Include="..\BurgerApp.ViewModels\BurgerApp.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

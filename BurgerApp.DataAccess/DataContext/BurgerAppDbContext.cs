@@ -9,6 +9,7 @@ namespace BurgerApp.DataAccess.DataContext
         public DbSet<Burger> Burgers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Location> Locations { get; set; }
 
         public BurgerAppDbContext(DbContextOptions dbContextOptions) : 
             base(dbContextOptions){}
@@ -31,6 +32,11 @@ namespace BurgerApp.DataAccess.DataContext
                 .HasMany(x => x.Orders)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId);
+
+            modelBuilder.Entity<Location>()
+                .HasMany(x => x.Orders)
+                .WithOne(x => x.Location)
+                .HasForeignKey(x => x.LocationId);
 
             modelBuilder.Entity<Burger>()
                 .HasData(

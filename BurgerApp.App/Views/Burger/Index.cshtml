@@ -1,0 +1,13 @@
+﻿@model List<BurgerListViewModel>
+@{
+    ViewData["Title"] = "Menu";
+}
+
+<div class="container">
+    <div class="d-flex">
+        @foreach(var burger in Model)
+        {
+            <partial name="~/Views/Shared/Partials/_BurgerMenuCard.cshtml" for="@burger" />
+        }
+    </div>
+</div>
