@@ -4,6 +4,7 @@ using BurgerApp.DataAccess.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurgerApp.DataAccess.Migrations
 {
     [DbContext(typeof(BurgerAppDbContext))]
-    partial class BurgerAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230629001629_Updated_burger_model_with_img")]
+    partial class Updated_burger_model_with_img
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

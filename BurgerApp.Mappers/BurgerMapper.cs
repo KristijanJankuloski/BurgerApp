@@ -33,5 +33,35 @@ namespace BurgerApp.Mappers
                 HasFries = burger.HasFries,
             };
         }
+
+        public static BurgerViewModel ToBurgerViewModel(this Burger burger)
+        {
+            return new BurgerViewModel
+            {
+                Id = burger.Id,
+                Name = burger.Name,
+                Price = burger.Price,
+                Description = burger.Description,
+                IsVegan = burger.IsVegan,
+                IsVegeterian = burger.IsVegeterian,
+                HasFires = burger.HasFries,
+                ImageUrl = burger.ImageUrl,
+            };
+        }
+
+        public static Burger ToBurger(this BurgerViewModel burgerVM)
+        {
+            return new Burger
+            {
+                Id = burgerVM.Id,
+                Name = burgerVM.Name,
+                Price = burgerVM.Price,
+                Description = burgerVM.Description,
+                IsVegan = burgerVM.IsVegan,
+                IsVegeterian = burgerVM.IsVegeterian,
+                HasFries = burgerVM.HasFires,
+                ImageUrl = burgerVM.ImageUrl,
+            };
+        }
     }
 }

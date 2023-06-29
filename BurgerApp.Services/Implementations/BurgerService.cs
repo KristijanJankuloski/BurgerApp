@@ -14,9 +14,23 @@ namespace BurgerApp.Services.Implementations
             _burgerRepository = burgerRepository;
         }
 
+        public async Task CreateBurger(BurgerViewModel model)
+        {
+            await _burgerRepository.InsertAsync(model.ToBurger());
+        }
+
+        public async Task DeleteBurgerById(int id)
+        {
+            await _burgerRepository.DeleteByIdAsync(id);
+        }
+
         public async Task<BurgerDetailsViewModel> GetBurgerDetails(int id)
         {
             Burger burger = await _burgerRepository.GetByIdAsync(id);
+            if(burger == null)
+            {
+                return null;
+            }
             return burger.ToBurgerDetailsViewModel();
         }
 
@@ -24,6 +38,17 @@ namespace BurgerApp.Services.Implementations
         {
             List<Burger> burgers = await _burgerRepository.GetAllAsync();
             return burgers.Select(b => b.ToBurgerListViewModel()).ToList();
+        }
+
+        public async Task<BurgerViewModel> GetBurgerViewModel(int id)
+        {
+            var burger = await _burgerRepository.GetByIdAsync(id);
+            return burger.ToBurgerViewModel();
+        }
+
+        public async Task UpdateBurger(BurgerViewModel model)
+        {
+            await _burgerRepository.UpdateAsync(model.ToBurger());
         }
     }
 }

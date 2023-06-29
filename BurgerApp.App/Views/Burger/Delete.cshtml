@@ -1,0 +1,46 @@
+﻿@model BurgerViewModel
+@{
+    ViewData["Title"] = "Delete burger";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="display-3">Delete burger</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" asp-action="Delete">
+                <div class="mb-2">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" type="text" class="form-control" disabled />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" type="text" class="form-control" disabled />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="Description" class="form-label"></label>
+                    <input asp-for="Description" type="text" class="form-control" disabled />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="IsVegeterian" class="form-check-label"></label>
+                    <input asp-for="IsVegeterian" class="form-check" disabled />
+                    <label asp-for="IsVegan" class="form-check-label"></label>
+                    <input asp-for="IsVegan" class="form-check" disabled />
+                    <label asp-for="HasFires" class="form-check-label"></label>
+                    <input asp-for="HasFires" class="form-check" disabled />
+                </div>
+                <div class="mb-2">
+                    <label asp-for="ImageUrl" class="form-label"></label>
+                    <input asp-for="ImageUrl" type="text" class="form-control" disabled />
+                </div>
+                <div class="mb-2">
+                    <button type="submit" class="btn btn-danger">Delete burger</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -4,6 +4,9 @@
 }
 
 <div class="container">
+    <div class="p-3">
+        <a asp-action="Create" class="btn btn-success">Create a new burger</a>
+    </div>
     <div class="row">
         @foreach(var burger in Model)
         {

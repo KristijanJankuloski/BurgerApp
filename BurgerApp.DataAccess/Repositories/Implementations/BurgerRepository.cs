@@ -25,6 +25,7 @@ namespace BurgerApp.DataAccess.Repositories.Implementations
             if (burger == null) {
                 throw new Exception("Burger not found");
             }
+            _context.Burgers.Remove(burger);
             await _context.SaveChangesAsync();
         }
 

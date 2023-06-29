@@ -11,5 +11,9 @@ namespace BurgerApp.Services.Interfaces
     {
         Task<List<BurgerListViewModel>> GetBurgersForCards();
         Task<BurgerDetailsViewModel> GetBurgerDetails(int id);
+        Task<BurgerViewModel> GetBurgerViewModel(int id);
+        Task CreateBurger(BurgerViewModel model);
+        Task UpdateBurger(BurgerViewModel model);
+        Task DeleteBurgerById(int id);
     }
 }

@@ -6,6 +6,8 @@
         <h3 class="card-title">@Model.Name</h3>
         <p class="card-text">@Model.Price</p>
         <a asp-action="Details" asp-route-id="@Model.Id" class="btn btn-primary">View more</a>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-info">Edit</a>
+        <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
     </div>
     </div>
 </div>

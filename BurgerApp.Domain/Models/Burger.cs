@@ -14,6 +14,7 @@ namespace BurgerApp.Domain.Models
         public bool IsVegeterian { get; set; }
         public bool IsVegan { get; set; }
         public bool HasFries { get; set; }
+        public string? ImageUrl { get; set; }
         public List<OrderBurger> OrderBurgers { get; set; } = new();
     }
 }
