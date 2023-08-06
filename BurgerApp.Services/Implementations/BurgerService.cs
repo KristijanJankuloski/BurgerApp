@@ -34,6 +34,12 @@ namespace BurgerApp.Services.Implementations
             return burger.ToBurgerDetailsViewModel();
         }
 
+        public async Task<List<BurgerOrderSelectListViewModel>> GetBurgerSelectList()
+        {
+            List<Burger> burgers = await _burgerRepository.GetAllAsync();
+            return burgers.Select(b => b.ToBurgerOrderSelectList()).ToList();
+        }
+
         public async Task<List<BurgerListViewModel>> GetBurgersForCards()
         {
             List<Burger> burgers = await _burgerRepository.GetAllAsync();

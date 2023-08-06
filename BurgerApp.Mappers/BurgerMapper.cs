@@ -63,5 +63,13 @@ namespace BurgerApp.Mappers
                 ImageUrl = burgerVM.ImageUrl,
             };
         }
+        public static BurgerOrderSelectListViewModel ToBurgerOrderSelectList(this Burger burger)
+        {
+            return new BurgerOrderSelectListViewModel
+            {
+                Id = burger.Id,
+                Name = burger.Name,
+            };
+        }
     }
 }

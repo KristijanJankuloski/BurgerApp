@@ -9,5 +9,6 @@ namespace BurgerApp.DataAccess.Repositories.Interfaces
 {
     public interface IOrderRepository : IRepository<Order>
     {
+        Task<Order> InserAndReturnAsync(Order order);
     }
 }

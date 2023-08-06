@@ -4,6 +4,7 @@ using BurgerApp.DataAccess.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurgerApp.DataAccess.Migrations
 {
     [DbContext(typeof(BurgerAppDbContext))]
-    partial class BurgerAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230703224812_seeding_users")]
+    partial class seeding_users
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -129,16 +132,6 @@ namespace BurgerApp.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Locations");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Address = "Ulica Makedonija 11",
-                            ClosesAt = new TimeSpan(0, 23, 0, 0, 0),
-                            Name = "Centar",
-                            OpensAt = new TimeSpan(0, 9, 0, 0, 0)
-                        });
                 });
 
             modelBuilder.Entity("BurgerApp.Domain.Models.Order", b =>

@@ -81,6 +81,30 @@ namespace BurgerApp.DataAccess.DataContext
                     HasFries = true,
                 }
             );
+            modelBuilder.Entity<User>()
+                .HasData(
+                    new User
+                    {
+                        Id = 1,
+                        FirstName = "John",
+                        LastName = "Doe",
+                        PhoneNumber = "1234567890",
+                        Address = "112b Baker's street",
+                        Email = "doe@john.com",
+
+                    }
+                );
+            modelBuilder.Entity<Location>()
+                .HasData(
+                new Location
+                {
+                    Id = 1,
+                    Name = "Centar",
+                    Address = "Ulica Makedonija 11",
+                    OpensAt = new TimeSpan(9, 0, 0),
+                    ClosesAt = new TimeSpan(23, 0, 0)
+                }
+            );
         }
     }
 }

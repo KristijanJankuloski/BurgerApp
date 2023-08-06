@@ -1,0 +1,49 @@
+﻿@model OrderCreateViewModel
+@{
+    ViewData["Title"] = "Order now";
+}
+
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="mb-2 d-flex">
+                    <label asp-for="UserId" class="form-label"></label>
+                    <select asp-for="UserId" class="form-select" asp-items="@(new SelectList(ViewBag.AllUsers, "Id", "Name"))"></select>
+                    <span asp-validation-for="UserId"></span>
+                    <h4>or: </h4>
+                    <a asp-controller="User" asp-action="Create" class="btn btn-sm btn-outline-success">Register new user</a>
+                </div>
+                <div class="mb-2">
+                    <label asp-for="LocationId" class="form-label"></label>
+                    <select asp-for="LocationId" class="form-select" asp-items="@(new SelectList(ViewBag.AllLocations, "Id", "Name"))"></select>
+                </div>
+                <div class="mb-2" id="burgerList">
+                    <label asp-for="BurgerIds" class="form-label"></label>
+                    <select name="BurgerIds" class="form-select mb-1" asp-items="@(new SelectList(ViewBag.AllBurgers, "Id", "Name"))"></select>
+                </div>
+                    <button type="button" class="btn btn-sm btn-primary mb-2" onclick="addBurger()">Add Burger</button>
+                    <br />
+                    <button type="submit" class="btn btn-success">Order now</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addBurger() {
+        const selectElement = document.createElement("select");
+        selectElement.className = "form-select mb-1";
+        selectElement.name = "BurgerIds";
+
+        const burgerListDiv = document.getElementById("burgerList");
+        burgerListDiv.appendChild(selectElement);
+
+        const burgerOptions = document.querySelector("#burgerList select");
+        const lastBurgerOptions = burgerOptions.querySelectorAll("option");
+
+        for (let i = 0; i < lastBurgerOptions.length; i++) {
+            selectElement.appendChild(lastBurgerOptions[i].cloneNode(true));
+        }
+    }
+</script>

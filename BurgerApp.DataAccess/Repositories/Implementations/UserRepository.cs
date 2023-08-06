@@ -35,7 +35,9 @@ namespace BurgerApp.DataAccess.Repositories.Implementations
 
         public async Task<User> GetByIdAsync(int id)
         {
-            return await _context.Users.Include(u => u.Orders).FirstOrDefaultAsync(u => u.Id == id);
+            return await _context.Users
+                .Include(u => u.Orders)
+                .FirstOrDefaultAsync(u => u.Id == id);
         }
 
         public async Task InsertAsync(User entity)
