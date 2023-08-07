@@ -16,10 +16,5 @@ namespace BurgerApp.App.Controllers
         {
             return View();
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
     }
 }

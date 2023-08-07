@@ -18,5 +18,18 @@ namespace BurgerApp.Mappers
                 PaymentMethod = model.PaymentMethod,
             };
         }
+
+        public static OrderListViewModel ToOrderList(this Order order)
+        {
+            return new OrderListViewModel
+            {
+                Id = order.Id,
+                OrderDate = order.OrderDate,
+                LocationName = order.Location.Name,
+                PaymentMethod = order.PaymentMethod,
+                Status = order.OrderStatus,
+                NumberOfItems = order.OrderBurgers.Count,
+            };
+        }
     }
 }

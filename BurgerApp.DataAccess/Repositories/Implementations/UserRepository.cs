@@ -37,6 +37,9 @@ namespace BurgerApp.DataAccess.Repositories.Implementations
         {
             return await _context.Users
                 .Include(u => u.Orders)
+                .ThenInclude(o => o.Location)
+                .Include(u => u.Orders)
+                .ThenInclude(o => o.OrderBurgers)
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
 

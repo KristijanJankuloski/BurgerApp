@@ -29,6 +29,7 @@ namespace BurgerApp.Helpers
             services.AddTransient<IBurgerService, BurgerService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<ILocationService, LocationService>();
+            services.AddTransient<IOrderService, OrderService>();
         }
     }
 }

@@ -11,5 +11,6 @@ namespace BurgerApp.Services.Interfaces
     {
         Task CreateUser(UserViewModel user);
         Task<List<UserSelectListViewModel>> GetUserSelectList();
+        Task<UserDetailsViewModel> GetUserDetails(int id);
     }
 }

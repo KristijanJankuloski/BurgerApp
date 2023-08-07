@@ -36,5 +36,16 @@ namespace BurgerApp.App.Controllers
             TempData["Success"] = "User created";
             return RedirectToAction("Index", "Order");
         }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if(id == null || id == 0)
+            {
+                TempData["Error"] = "No user found";
+                return RedirectToAction("Index", "Home");
+            }
+            UserDetailsViewModel model = await _userService.GetUserDetails((int)id);
+            return View(model);
+        }
     }
 }

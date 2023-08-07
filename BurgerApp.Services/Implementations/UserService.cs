@@ -24,6 +24,18 @@ namespace BurgerApp.Services.Implementations
             await _userRepository.InsertAsync(user.ToUser());
         }
 
+        public async Task<UserDetailsViewModel> GetUserDetails(int id)
+        {
+            User user = await _userRepository.GetByIdAsync(id);
+            UserDetailsViewModel model = user.ToUserDetails();
+            model.Orders = new();
+            foreach(var item in user.Orders)
+            {
+                model.Orders.Add(item.ToOrderList());
+            }
+            return model;
+        }
+
         public async Task<List<UserSelectListViewModel>> GetUserSelectList()
         {
             List<User> userList = await _userRepository.GetAllAsync();

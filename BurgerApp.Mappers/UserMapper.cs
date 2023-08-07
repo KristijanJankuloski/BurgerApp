@@ -30,5 +30,18 @@ namespace BurgerApp.Mappers
                 Name = $"{user.FirstName} {user.LastName} - {user.Email}",
             };
         }
+
+        public static UserDetailsViewModel ToUserDetails(this User user)
+        {
+            return new UserDetailsViewModel
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                PhoneNumber = user.PhoneNumber,
+                Address = user.Address,
+            };
+        }
     }
 }
